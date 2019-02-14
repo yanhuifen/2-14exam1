@@ -7,11 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper-4.1.6.min.css">
 </head>
 
 <body>
     <div class="wrap">
         <header>
+
             <dl>
                 <dt><img src="img/li1.PNG" alt=""></dt>
                 <dd>电源</dd>
@@ -31,26 +33,31 @@
 
         </header>
         <section>
-            电源
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">电源</div>
+                    <div class="swiper-slide">首页</div>
+                    <div class="swiper-slide">菜单</div>
+                    <div class="swiper-slide">截屏</div>
+                </div>
+            </div>
         </section>
     </div>
 </body>
+<script src="js/swiper-4.1.6.min.js"></script>
 <script>
     var dls = document.querySelectorAll('dl');
-    var main = document.querySelector('section');
+    var header = document.querySelector('header');
+    var swiper = new Swiper('.swiper-container', {
+        on: {
+            slideChange: function() {
+                var index = this.activeIndex;
+            }
+        }
+    })
     dls.forEach(function(item, index) {
         item.onclick = function() {
-            if (index == 0) {
-                main.innerHTML = "开关";
-            } else if (index == 1) {
-                main.innerHTML = "首页";
-            } else if (index == 2) {
-                main.innerHTML = "菜单";
-            } else if (index == 3) {
-                main.innerHTML = "截屏";
-            } else {
-                main.innerHTML = "无该功能";
-            }
+            swiper.slideTo(index);
         }
     })
 </script>
