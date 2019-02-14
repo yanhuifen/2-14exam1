@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <dl>
+                <dt><img src="img/li1.PNG" alt=""></dt>
+                <dd>电源</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/li2.PNG" alt=""></dt>
+                <dd>首页</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/li3.PNG" alt=""></dt>
+                <dd>菜单</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/li4.PNG" alt=""></dt>
+                <dd>截屏</dd>
+            </dl>
+
+        </header>
+        <section>
+            电源
+        </section>
+    </div>
+</body>
+<script>
+    var dls = document.querySelectorAll('dl');
+    var main = document.querySelector('section');
+    dls.forEach(function(item, index) {
+        item.onclick = function() {
+            if (index == 0) {
+                main.innerHTML = "开关";
+            } else if (index == 1) {
+                main.innerHTML = "首页";
+            } else if (index == 2) {
+                main.innerHTML = "菜单";
+            } else if (index == 3) {
+                main.innerHTML = "截屏";
+            } else {
+                main.innerHTML = "无该功能";
+            }
+        }
+    })
+</script>
+
+</html>
